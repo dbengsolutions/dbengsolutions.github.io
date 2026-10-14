@@ -1,0 +1,508 @@
+:root {
+  --primary-color: #0b1d3a;
+  --secondary-color: #1f3b73;
+  --gradient2: radial-gradient(circle, #0b1d3a, #1f3b73,  #f1f3f6);
+  --accent-color: #4a90e2;
+  --gradient: linear-gradient(135deg, #f1f3f6, #1f3b73, #0b1d3a);
+  --text-color: #ffffff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Conteúdo principal ocupa o espaço disponível */
+main {
+  flex: 1;
+}
+
+/* Rodapé sempre no final */
+footer {
+  margin-top: auto;
+}
+
+/* Ajuste no menu para evitar barra de rolagem */
+nav {
+  flex-shrink: 0;       /* impede o nav de encolher ou gerar scroll */
+  overflow-x: hidden;   /* remove barra horizontal */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background: var(--gradient);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+header .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+header img.logo {
+  max-height: 120px;
+  width: auto;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  border-radius: 50%;
+}
+
+header img.logo:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px 8px rgba(74, 144, 226, 0.8);
+}
+
+header h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Ícones de contato no header */
+header .social-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header .social-icons a {
+  color: #ffffff;
+  font-size: 2rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+header .social-icons a:hover {
+  color: var(--accent-color);
+  transform: scale(1.2);
+}
+
+/* Botão menu hambúrguer */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+}
+
+/* Navegação */
+nav {
+  background-color: rgba(11, 29, 58, 0.95);
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 25px 15px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  overflow-x: auto;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 30px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: relative;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: -6px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.4s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* Layout principal */
+.index-container,
+.eletrica-container,
+.mecanica-container,
+.automacao-container,
+.seguranca-container,
+.cases-container,
+.contato-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  background: linear-gradient(180deg, #1e3a5f, #0d1f3a);
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.texto-index,
+.texto-eletrica,
+.texto-mecanica,
+.texto-automacao,
+.texto-seguranca,
+.texto-cases,
+.texto-contato {
+  flex: 1 1 400px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Imagens */
+.imagem-index,
+.imagem-eletrica,
+.imagem-mecanica,
+.imagem-automacao,
+.imagem-seguranca,
+.imagem-cases,
+.imagem-contato {
+  flex: 1 1 300px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.imagem-index img,
+.imagem-eletrica img,
+.imagem-mecanica img,
+.imagem-automacao img,
+.imagem-seguranca img,
+.imagem-cases img,
+.imagem-contato img {
+  width: 80%;
+  max-width: 350px;
+  opacity: 0.25;
+  transition: opacity 1.5s ease;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+.imagem-index:hover img,
+.imagem-eletrica:hover img,
+.imagem-mecanica:hover img,
+.imagem-automacao:hover img,
+.imagem-seguranca:hover img,
+.imagem-cases:hover img,
+.imagem-contato:hover img {
+  opacity: 1;
+}
+
+/* Cases - projetos alinhados */
+.cases-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.case {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.case-texto {
+  flex: 2; /* ocupa 2/3 da tela */
+  text-align: left;
+}
+
+.case-imagem {
+  flex: 1; /* ocupa 1/3 da tela */
+  text-align: right;
+}
+
+.case-imagem img {
+  width: 80%;       /* reduzido em 50% */
+  max-width: 200px; /* limite */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
+  transition: opacity 0.5s ease;
+}
+
+/*video*/
+.video-case {
+  width: 80%;       /* igual às imagens */
+  max-width: 200px; /* limite igual às imagens */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
+  transition: opacity 0.5s ease;
+}
+
+/* Formulário de contato */
+.form-contato {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.form-contato label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.form-contato input,
+.form-contato textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.form-contato input:focus,
+.form-contato textarea:focus {
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+.form-contato button {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.form-contato button:hover {
+  background: #357ABD;
+  transform: scale(1.05);
+}
+
+/* Links de contato na página Contato */
+.links-contato {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.links-contato p {
+  margin: 8px 0;
+}
+
+.links-contato a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.links-contato a:hover {
+  color: var(--accent-color);
+}
+
+.links-contato a:visited {
+  color: #ffffff;
+}
+
+/* Conteúdo principal */
+main h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  transform-origin: center;
+}
+
+main h2:hover {
+  transform: scale(1.15);
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+}
+
+main p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 10px 0;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Rodapé */
+footer {
+  background: var(--gradient2);
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  box-shadow: 0 -4px 8px rgba(0,0,0,0.4);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  /* Body ocupa toda a altura da tela */
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ajuste geral das seções */
+  .index-container,
+  .eletrica-container,
+  .mecanica-container,
+  .automacao-container,
+  .seguranca-container,
+  .cases-container,
+  .contato-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 1; /* ocupa espaço disponível para empurrar o rodapé */
+  }
+
+  /* Rodapé fixado no fim apenas em telas menores */
+  footer {
+    margin-top: auto; /* empurra o rodapé para o final */
+  }
+
+  /* Imagens principais */
+  .imagem-index img,
+  .imagem-eletrica img,
+  .imagem-mecanica img,
+  .imagem-automacao img,
+  .imagem-seguranca img,
+  .imagem-cases img,
+  .imagem-contato img {
+    opacity: 1;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 12px;
+  }
+
+  /* Cases - reorganiza texto e imagem */
+  .case {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .case-texto {
+    flex: unset;
+    text-align: left;
+    width: 100%;
+  }
+
+  .case-imagem {
+    flex: unset;
+    text-align: center;
+    width: 100%;
+  }
+
+  .case-imagem img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .video-case {
+    width: 100%;
+    max-width: 350px;
+    object-fit: cover; /* mantém proporção cortando excesso */
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    display: none;
+    overflow-x: unset;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    margin: 12px 0;
+    font-size: 1.2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header img.logo {
+    max-height: 60px;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  /* Ajuste das imagens em telas menores */
+  .imagem-index img,
+  .imagem-eletrica img,
+  .imagem-mecanica img,
+  .imagem-automacao img,
+  .imagem-seguranca img,
+  .imagem-cases img,
+  .imagem-contato img {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Cases - texto e imagem empilhados */
+  .case {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .case-texto {
+    text-align: left;
+    width: 100%;
+  }
+
+  .case-imagem img {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .video-case {
+    width: 100%;
+    max-width: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+}
